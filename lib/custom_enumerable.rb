@@ -24,9 +24,6 @@ module CustomEnumerable
   end
 
   def reduce(accumulator = nil, operation = nil, &block)
-    raise ArgumentError, "you must provide an operation or a block" if accumulator.nil? && operation.nil? && block.nil?
-    raise ArgumentError, "you must provide either an operation symbol or a block, not both" if operation && block
-
     if operation.nil? && block.nil?
       operation   = accumulator
       accumulator = nil
@@ -37,8 +34,6 @@ module CustomEnumerable
         lambda { |acc, value| acc.send(operation, value) }
       when nil
         block
-      else
-        raise ArgumentError, "the operation provided must be a symbol"
     end
 
     if accumulator.nil?
