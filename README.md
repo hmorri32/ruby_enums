@@ -1,1 +1,1 @@
-Tinkering with replicating ruby's enumerables
+Tinkering with replicating ruby enumerables
